@@ -294,7 +294,7 @@ const chat: AiFeature<"chat"> = {
       rules: [
         "Rely only on the plan data for facts about this event. If something is not there, say so.",
         "If a change to the plan would help, propose it in proposals. You cannot change the plan yourself: the user approves each proposal, so never say you have added or changed anything. Say what you suggest instead.",
-        "When the question is about money, name the specific budget lines and amounts from the data.",
+        "When the question is about money, name at least two specific budget lines with their amounts from the data, and say how much to take from each. Finish with the next step, not a question back to the user.",
         'Proposal types: {"type":"addTask","title":"","due":"YYYY-MM-DD","why":""}, {"type":"addVendor","label":"","why":""}, {"type":"moveBudget","from":"line-id","to":"line-id","amount":0,"why":""}.',
         `Task due dates must fall between today and the event date. ${VALID_LINE_IDS_NOTE}`,
         "Propose at most 3 changes, and none if the user only asked a question.",
