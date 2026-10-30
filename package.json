@@ -4,6 +4,7 @@
   "private": true,
   "description": "Grace: a GenAI planning assistant for weddings, birthdays and community events, with budgets, timelines, vendor checklists and personalised ideas.",
   "license": "MIT",
+  "type": "module",
   "engines": {
     "node": ">=22"
   },

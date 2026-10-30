@@ -2,13 +2,13 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "nod
 import { tmpdir } from "node:os";
 import { join, relative } from "node:path";
 import { afterAll, describe, expect, it, vi } from "vitest";
-import { clientKey, createApp, MAX_BODY_BYTES } from "./app";
-import { createAiService, type AiService } from "./ai/service";
-import type { LlmClient } from "./ai/llm";
-import { createConfiguredApp } from "./bootstrap";
-import { loadConfig } from "./config";
-import { CONTENT_SECURITY_POLICY, SECURITY_HEADERS } from "./security-headers";
-import { withStaticFiles } from "./static";
+import { clientKey, createApp, MAX_BODY_BYTES } from "./app.js";
+import { createAiService, type AiService } from "./ai/service.js";
+import type { LlmClient } from "./ai/llm.js";
+import { createConfiguredApp } from "./bootstrap.js";
+import { loadConfig } from "./config.js";
+import { CONTENT_SECURITY_POLICY, SECURITY_HEADERS } from "./security-headers.js";
+import { withStaticFiles } from "./static.js";
 
 const offlineLlm: LlmClient = {
   configured: false,

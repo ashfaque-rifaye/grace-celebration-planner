@@ -6,9 +6,9 @@
  * must be affordable, a due date must fall before the event) live in one tested
  * place and an AI suggestion gets no special path around them.
  */
-import { applyBudgetMove, rebalanceLines, buildBudgetLines } from "./budget";
-import { EVENT_TEMPLATES, vendorChecklist } from "./templates";
-import { clampDate, scheduleTasks, vendorBookBy } from "./timeline";
+import { applyBudgetMove, rebalanceLines, buildBudgetLines } from "./budget.js";
+import { EVENT_TEMPLATES, vendorChecklist } from "./templates.js";
+import { clampDate, scheduleTasks, vendorBookBy } from "./timeline.js";
 import {
   PLAN_VERSION,
   type BudgetCategory,
@@ -22,7 +22,7 @@ import {
   type RunSheetItem,
   type Vendor,
   type VendorBrief,
-} from "./schemas";
+} from "./schemas.js";
 
 const MAX_CHAT_MESSAGES = 200;
 

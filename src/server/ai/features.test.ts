@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { makeBrief, makePlan, TODAY } from "../../test/fixtures";
-import { aiContracts, AI_FEATURE_NAMES } from "../../shared/contracts";
-import { buildPlanContext } from "../../shared/plan-context";
-import { AI_FEATURES } from "./features";
+import { makeBrief, makePlan, TODAY } from "../../test/fixtures.js";
+import { aiContracts, AI_FEATURE_NAMES } from "../../shared/contracts.js";
+import { buildPlanContext } from "../../shared/plan-context.js";
+import { AI_FEATURES } from "./features.js";
 
 const context = { today: TODAY };
 const planContext = buildPlanContext(makePlan(), TODAY);

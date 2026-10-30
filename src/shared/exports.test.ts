@@ -1,8 +1,8 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { makePlan } from "../test/fixtures";
-import { budgetToCsv, csvCell, planToIcs, planToJson } from "./exports";
-import { planSchema } from "./schemas";
+import { makePlan } from "../test/fixtures.js";
+import { budgetToCsv, csvCell, planToIcs, planToJson } from "./exports.js";
+import { planSchema } from "./schemas.js";
 
 const STAMP = "2026-11-01T10:00:00.000Z";
 

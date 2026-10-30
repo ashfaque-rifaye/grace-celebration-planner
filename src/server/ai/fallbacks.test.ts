@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { makeBrief, makePlan, TODAY } from "../../test/fixtures";
-import { aiContracts } from "../../shared/contracts";
-import { buildPlanContext } from "../../shared/plan-context";
-import { EVENT_TYPES } from "../../shared/schemas";
+import { makeBrief, makePlan, TODAY } from "../../test/fixtures.js";
+import { aiContracts } from "../../shared/contracts.js";
+import { buildPlanContext } from "../../shared/plan-context.js";
+import { EVENT_TYPES } from "../../shared/schemas.js";
 import {
   briefFallback,
   budgetFallback,
@@ -11,7 +11,7 @@ import {
   personalizeFallback,
   runsheetFallback,
   vendorFallback,
-} from "./fallbacks";
+} from "./fallbacks.js";
 
 const parseBrief = (text: string) => briefFallback({ text }, TODAY).brief;
 

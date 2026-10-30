@@ -1,6 +1,6 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { cleanModelOutput, cleanModelText, sanitizeDeep, sanitizeText } from "./sanitize";
+import { cleanModelOutput, cleanModelText, sanitizeDeep, sanitizeText } from "./sanitize.js";
 
 describe("sanitizeText", () => {
   it.each([

@@ -4,11 +4,11 @@
  * This is the privacy boundary: vendor contact details and notes are not copied,
  * so they cannot leave the browser no matter what the model is asked.
  */
-import { summarizeBudget } from "./budget";
-import { daysToGo, detectRisks } from "./insights";
-import { isOverdue } from "./timeline";
-import type { PlanContext } from "./contracts";
-import type { Plan } from "./schemas";
+import { summarizeBudget } from "./budget.js";
+import { daysToGo, detectRisks } from "./insights.js";
+import { isOverdue } from "./timeline.js";
+import type { PlanContext } from "./contracts.js";
+import type { Plan } from "./schemas.js";
 
 const MAX_OPEN_TASKS = 15;
 

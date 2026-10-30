@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createRateLimiter } from "./rate-limit";
+import { createRateLimiter } from "./rate-limit.js";
 
 describe("createRateLimiter", () => {
   const options = { windowMs: 1000, max: 2 };

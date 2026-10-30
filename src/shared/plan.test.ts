@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { makeBrief, makePlan, TODAY } from "../test/fixtures";
-import { planReducer, type PlanAction } from "./plan";
-import { planSchema, EVENT_TYPES, type Plan } from "./schemas";
+import { makeBrief, makePlan, TODAY } from "../test/fixtures.js";
+import { planReducer, type PlanAction } from "./plan.js";
+import { planSchema, EVENT_TYPES, type Plan } from "./schemas.js";
 
 const apply = (plan: Plan, action: PlanAction) => planReducer(plan, action, TODAY);
 

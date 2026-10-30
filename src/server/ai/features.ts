@@ -9,11 +9,11 @@
  * The model is used where judgement and language are needed. It never does the
  * arithmetic, and `ground` re-checks anything it says about the user's own data.
  */
-import { LANGUAGE_NAMES } from "../../shared/languages";
-import { clampDate } from "../../shared/timeline";
-import { EVENT_TEMPLATES } from "../../shared/templates";
-import type { AiFeatureName, AiOutput, AiParsedInput, PlanContext } from "../../shared/contracts";
-import type { BudgetCategory, Language, PlanProposal } from "../../shared/schemas";
+import { LANGUAGE_NAMES } from "../../shared/languages.js";
+import { clampDate } from "../../shared/timeline.js";
+import { EVENT_TEMPLATES } from "../../shared/templates.js";
+import type { AiFeatureName, AiOutput, AiParsedInput, PlanContext } from "../../shared/contracts.js";
+import type { BudgetCategory, Language, PlanProposal } from "../../shared/schemas.js";
 import {
   briefFallback,
   budgetFallback,
@@ -22,7 +22,7 @@ import {
   personalizeFallback,
   runsheetFallback,
   vendorFallback,
-} from "./fallbacks";
+} from "./fallbacks.js";
 
 export interface FeatureContext {
   today: string;

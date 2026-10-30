@@ -1,4 +1,4 @@
-import type { Language } from "./schemas";
+import type { Language } from "./schemas.js";
 
 /** Display names, also used to instruct the model which language to write in. */
 export const LANGUAGE_NAMES: Record<Language, string> = {

@@ -6,9 +6,9 @@
  */
 import { Hono, type Context } from "hono";
 import { bodyLimit } from "hono/body-limit";
-import { AI_FEATURE_NAMES, type AiFeatureName } from "../shared/contracts";
-import { InvalidInputError, type AiService } from "./ai/service";
-import { SECURITY_HEADERS } from "./security-headers";
+import { AI_FEATURE_NAMES, type AiFeatureName } from "../shared/contracts.js";
+import { InvalidInputError, type AiService } from "./ai/service.js";
+import { SECURITY_HEADERS } from "./security-headers.js";
 
 /** Well above the largest valid payload (a brief plus a full plan context). */
 export const MAX_BODY_BYTES = 64 * 1024;

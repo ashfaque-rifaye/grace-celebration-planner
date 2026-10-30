@@ -4,7 +4,7 @@
  * skeleton that the AI layer then personalises, so a plan always exists even
  * with no model available.
  */
-import type { BudgetCategory, EventType } from "./schemas";
+import type { BudgetCategory, EventType } from "./schemas.js";
 
 export interface BudgetTemplateLine {
   category: BudgetCategory;

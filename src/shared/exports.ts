@@ -5,9 +5,9 @@
  * this module escapes them properly rather than joining strings. Pure, returning
  * text that the UI turns into a download.
  */
-import { addDays } from "./dates";
-import { summarizeBudget } from "./budget";
-import type { Plan } from "./schemas";
+import { addDays } from "./dates.js";
+import { summarizeBudget } from "./budget.js";
+import type { Plan } from "./schemas.js";
 
 /** RFC 5545 text escaping. */
 function icsText(value: string): string {

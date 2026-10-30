@@ -3,8 +3,8 @@
  * over-spend detection are all deterministic so the totals are always exact, and
  * the AI only ever proposes moves that this module validates and applies.
  */
-import { CONTINGENCY_SHARE, EVENT_TEMPLATES } from "./templates";
-import type { BudgetCategory, BudgetLine, BudgetMove, Brief, Plan } from "./schemas";
+import { CONTINGENCY_SHARE, EVENT_TEMPLATES } from "./templates.js";
+import type { BudgetCategory, BudgetLine, BudgetMove, Brief, Plan } from "./schemas.js";
 
 /** Weight multiplier for a category the user said matters most. */
 const PRIORITY_BOOST = 1.5;

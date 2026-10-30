@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createLruCache } from "./cache";
+import { createLruCache } from "./cache.js";
 
 describe("createLruCache", () => {
   it("returns what was stored", () => {

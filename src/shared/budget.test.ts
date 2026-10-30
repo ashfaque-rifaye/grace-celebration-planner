@@ -1,6 +1,6 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { makePlan } from "../test/fixtures";
+import { makePlan } from "../test/fixtures.js";
 import {
   allocate,
   applyBudgetMove,
@@ -8,9 +8,9 @@ import {
   formatMoney,
   rebalanceLines,
   summarizeBudget,
-} from "./budget";
-import { EVENT_TYPES } from "./schemas";
-import { EVENT_TEMPLATES } from "./templates";
+} from "./budget.js";
+import { EVENT_TYPES } from "./schemas.js";
+import { EVENT_TEMPLATES } from "./templates.js";
 
 describe("allocate", () => {
   it("always sums to exactly the total", () => {

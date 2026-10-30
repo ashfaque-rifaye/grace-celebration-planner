@@ -1,6 +1,6 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { addDays, daysBetween, formatDate, isIsoDate, todayIso } from "./dates";
+import { addDays, daysBetween, formatDate, isIsoDate, todayIso } from "./dates.js";
 
 describe("isIsoDate", () => {
   it.each(["2026-01-31", "2028-02-29", "2026-12-01"])("accepts %s", (value) => {

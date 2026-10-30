@@ -18,7 +18,7 @@ import {
   modelChain,
   type LlmEnv,
   type LlmProvider,
-} from "./llm-policy";
+} from "./llm-policy.js";
 
 export interface LlmRequest {
   system: string;

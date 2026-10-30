@@ -6,7 +6,7 @@
  * the same checks. Every string and array is bounded to cap memory and tokens.
  */
 import { z } from "zod";
-import { isIsoDate } from "./dates";
+import { isIsoDate } from "./dates.js";
 
 export const EVENT_TYPES = ["wedding", "birthday", "community"] as const;
 export const CURRENCIES = ["INR", "USD", "EUR", "GBP", "AED"] as const;

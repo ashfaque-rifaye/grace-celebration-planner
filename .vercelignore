@@ -1,3 +1,10 @@
+# Vercel reads this instead of .gitignore, so it must repeat anything secret.
+.env
+.env.*
+!.env.example
+
+node_modules
+dist
 coverage
 playwright-report
 test-results

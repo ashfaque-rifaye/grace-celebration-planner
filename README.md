@@ -8,7 +8,7 @@
 ![Coverage](https://img.shields.io/badge/coverage-99%25%20statements-brightgreen)
 ![WCAG](https://img.shields.io/badge/axe-0%20violations%20in%20both%20themes-brightgreen)
 
-**Live demo:** `DEPLOY_URL` · **Architecture:** [ARCHITECTURE.md](ARCHITECTURE.md) · **Threat model:** [SECURITY.md](SECURITY.md) · **Contributing:** [CONTRIBUTING.md](CONTRIBUTING.md)
+**Live demo:** https://grace-celebration-planner.vercel.app · **Architecture:** [ARCHITECTURE.md](ARCHITECTURE.md) · **Threat model:** [SECURITY.md](SECURITY.md) · **Contributing:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
 No login. Open the link, describe an event, and you have a plan.
 

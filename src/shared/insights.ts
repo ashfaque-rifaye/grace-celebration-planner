@@ -5,10 +5,10 @@
  * and it must stay correct when no model is available. Each risk carries a "why"
  * so the score is explainable rather than a mystery number.
  */
-import { summarizeBudget, formatMoney } from "./budget";
-import { daysBetween, formatDate } from "./dates";
-import { isOverdue } from "./timeline";
-import type { Plan, Task, Vendor } from "./schemas";
+import { summarizeBudget, formatMoney } from "./budget.js";
+import { daysBetween, formatDate } from "./dates.js";
+import { isOverdue } from "./timeline.js";
+import type { Plan, Task, Vendor } from "./schemas.js";
 
 export type PlanTab = "overview" | "budget" | "timeline" | "vendors" | "ideas" | "assistant";
 

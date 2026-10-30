@@ -1,8 +1,8 @@
 /** Node entry point: load configuration, build the app, listen. */
 import { serve } from "@hono/node-server";
-import { createConfiguredApp } from "./bootstrap";
-import { loadConfig } from "./config";
-import { withStaticFiles } from "./static";
+import { createConfiguredApp } from "./bootstrap.js";
+import { loadConfig } from "./config.js";
+import { withStaticFiles } from "./static.js";
 
 // Local convenience: load a gitignored .env (Node 20.12+). In production, real
 // environment variables are set and this does nothing.

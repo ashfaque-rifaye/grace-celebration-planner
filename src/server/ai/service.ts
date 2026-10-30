@@ -9,20 +9,20 @@
  * one answered. Logs record what failed and never what the user typed.
  */
 import { createHash } from "node:crypto";
-import { todayIso } from "../../shared/dates";
+import { todayIso } from "../../shared/dates.js";
 import {
   aiContracts,
   type AiEnvelope,
   type AiFeatureName,
   type AiParsedInput,
   type FallbackReason,
-} from "../../shared/contracts";
-import { createLruCache } from "../cache";
-import { createRateLimiter } from "../rate-limit";
-import { AI_FEATURES, type AiFeature } from "./features";
-import { extractJson, type LlmClient } from "./llm";
-import type { LlmProvider } from "./llm-policy";
-import { cleanModelOutput, sanitizeDeep } from "./sanitize";
+} from "../../shared/contracts.js";
+import { createLruCache } from "../cache.js";
+import { createRateLimiter } from "../rate-limit.js";
+import { AI_FEATURES, type AiFeature } from "./features.js";
+import { extractJson, type LlmClient } from "./llm.js";
+import type { LlmProvider } from "./llm-policy.js";
+import { cleanModelOutput, sanitizeDeep } from "./sanitize.js";
 
 const CACHE_TTL_MS = 10 * 60_000;
 const CACHE_MAX_ENTRIES = 300;

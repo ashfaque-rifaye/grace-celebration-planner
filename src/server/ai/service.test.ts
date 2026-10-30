@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
-import { makeBrief, TODAY } from "../../test/fixtures";
-import type { LlmClient, LlmRequest } from "./llm";
-import { createAiService, InvalidInputError } from "./service";
+import { makeBrief, TODAY } from "../../test/fixtures.js";
+import type { LlmClient, LlmRequest } from "./llm.js";
+import { createAiService, InvalidInputError } from "./service.js";
 
 const NOW = new Date(`${TODAY}T12:00:00`);
 
@@ -123,8 +123,8 @@ describe("createAiService", () => {
     const reply = JSON.stringify({ reply: "hi", reasoning: "r", proposals: [] });
     const llm = fakeLlm(reply);
     const { service } = makeService(llm);
-    const { buildPlanContext } = await import("../../shared/plan-context");
-    const { makePlan } = await import("../../test/fixtures");
+    const { buildPlanContext } = await import("../../shared/plan-context.js");
+    const { makePlan } = await import("../../test/fixtures.js");
     const body = { context: buildPlanContext(makePlan(), TODAY), message: "hello" };
     await service.run("chat", body, "client");
     const second = await service.run("chat", body, "client");

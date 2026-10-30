@@ -6,9 +6,9 @@
  * overdue on day one, the schedule compresses proportionally into the time that
  * remains, which preserves task order and tells the user it did so.
  */
-import { addDays, daysBetween } from "./dates";
-import type { Task } from "./schemas";
-import type { TaskTemplate, VendorTemplate } from "./templates";
+import { addDays, daysBetween } from "./dates.js";
+import type { Task } from "./schemas.js";
+import type { TaskTemplate, VendorTemplate } from "./templates.js";
 
 /** Map ideal days-before onto the runway that actually exists. */
 export function compressDays(idealDays: number, maxIdealDays: number, runway: number): number {

@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from "vitest";
-import { createLlmClient, extractJson, LlmUnavailableError } from "./llm";
+import { createLlmClient, extractJson, LlmUnavailableError } from "./llm.js";
 import {
   configuredProviders,
   DEFAULT_GEMINI_MODEL,
   isProviderFatalStatus,
   modelChain,
-} from "./llm-policy";
+} from "./llm-policy.js";
 
 const REQUEST = { system: "sys", user: "usr", maxTokens: 100, temperature: 0.2 };
 const passthrough = (text: string) => text;

@@ -6,11 +6,11 @@
  * plainly when this is what answered. These are honest rules and curated content,
  * and they do not pretend to be as adaptive as the model.
  */
-import { addDays, daysBetween, isIsoDate } from "../../shared/dates";
-import { formatMoney } from "../../shared/budget";
-import { EVENT_TEMPLATES } from "../../shared/templates";
-import type { AiOutput, AiParsedInput } from "../../shared/contracts";
-import type { Currency, EventType, PlanProposal } from "../../shared/schemas";
+import { addDays, daysBetween, isIsoDate } from "../../shared/dates.js";
+import { formatMoney } from "../../shared/budget.js";
+import { EVENT_TEMPLATES } from "../../shared/templates.js";
+import type { AiOutput, AiParsedInput } from "../../shared/contracts.js";
+import type { Currency, EventType, PlanProposal } from "../../shared/schemas.js";
 
 // --- Free-text brief -------------------------------------------------------
 

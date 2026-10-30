@@ -1,8 +1,8 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { addDays } from "./dates";
-import { EVENT_TYPES } from "./schemas";
-import { EVENT_TEMPLATES } from "./templates";
+import { addDays } from "./dates.js";
+import { EVENT_TYPES } from "./schemas.js";
+import { EVENT_TEMPLATES } from "./templates.js";
 import {
   clampDate,
   compressDays,
@@ -12,7 +12,7 @@ import {
   phaseFor,
   scheduleTasks,
   vendorBookBy,
-} from "./timeline";
+} from "./timeline.js";
 
 const TODAY = "2026-11-01";
 

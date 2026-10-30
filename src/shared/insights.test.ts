@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { makePlan, TODAY } from "../test/fixtures";
+import { makePlan, TODAY } from "../test/fixtures.js";
 import {
   computeReadiness,
   countdownLabel,
@@ -8,10 +8,10 @@ import {
   detectRisks,
   isVendorSecured,
   nextActions,
-} from "./insights";
-import { buildPlanContext } from "./plan-context";
-import { planContextSchema } from "./contracts";
-import type { Plan } from "./schemas";
+} from "./insights.js";
+import { buildPlanContext } from "./plan-context.js";
+import { planContextSchema } from "./contracts.js";
+import type { Plan } from "./schemas.js";
 
 function finishEverything(plan: Plan): Plan {
   return {

@@ -20,7 +20,7 @@ import {
   runSheetItemSchema,
   VENDOR_STATUSES,
   vendorBriefSchema,
-} from "./schemas";
+} from "./schemas.js";
 
 export const MAX_BRIEF_TEXT = 1000;
 export const MAX_CHAT_TEXT = 500;
