@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify (format, lint, types, tests, build, bundle budget)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 7
+
+  e2e:
+    name: Browser tests (journey, axe in both themes, security headers)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Upload failure traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7
+
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      # Only what ships to production can fail the build.
+      - run: npm audit --omit=dev --audit-level=high
+
+  repo-guards:
+    name: Guard against secrets and repository bloat
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      # The repository is public and the app uses a server-side LLM key, so a
+      # leaked credential is the highest-severity failure mode.
+      - name: Fail if an API key or .env is committed
+        run: |
+          set -e
+          if git ls-files | grep -qE '(^|/)\.env$'; then
+            echo "::error::.env is tracked in git"; exit 1
+          fi
+          if git grep -nIE '(fw_[A-Za-z0-9]{16,}|AIza[0-9A-Za-z_-]{30,}|AQ\.[A-Za-z0-9_-]{30,}|sk-[A-Za-z0-9]{20,})' \
+               -- . ':(exclude).github/workflows/*'; then
+            echo "::error::A credential-shaped string is committed"; exit 1
+          fi
+          echo "No committed secrets detected."
+      # The competition requires a repository under 10 MB.
+      - name: Fail if tracked files exceed 10 MB
+        run: |
+          total=$(git ls-files -z | xargs -0 du -cb | tail -1 | cut -f1)
+          echo "Tracked files: $total bytes"
+          test "$total" -lt 10000000

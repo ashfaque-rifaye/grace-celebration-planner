@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.vercel/
+
+# Secrets: the repository is public, so real keys must never be committed.
+.env
+.env.*
+!.env.example
+
+*.log
+.DS_Store
+Thumbs.db
+.claude/
