@@ -22,9 +22,9 @@ export interface LlmEnv {
 // fallback must be a different model: this one keeps answering when the primary
 // returns 429, where an alias such as gemini-flash-lite-latest did not.
 export const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
-export const DEFAULT_GEMINI_FALLBACK_MODEL = "gemini-3.1-flash-lite";
-export const DEFAULT_FIREWORKS_MODEL = "accounts/fireworks/models/gpt-oss-120b";
-export const DEFAULT_FIREWORKS_FALLBACK_MODEL = "accounts/fireworks/models/glm-5p2";
+const DEFAULT_GEMINI_FALLBACK_MODEL = "gemini-3.1-flash-lite";
+const DEFAULT_FIREWORKS_MODEL = "accounts/fireworks/models/gpt-oss-120b";
+const DEFAULT_FIREWORKS_FALLBACK_MODEL = "accounts/fireworks/models/glm-5p2";
 
 /** Providers to try, in order. One with no key is skipped, not attempted. */
 export function configuredProviders(env: LlmEnv): LlmProvider[] {

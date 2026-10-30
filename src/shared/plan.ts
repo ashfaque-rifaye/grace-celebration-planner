@@ -69,7 +69,7 @@ export function createPlan(
   };
 }
 
-export interface PersonalizationPayload {
+interface PersonalizationPayload {
   summary: string;
   reasoning: string;
   source: Personalization["source"];

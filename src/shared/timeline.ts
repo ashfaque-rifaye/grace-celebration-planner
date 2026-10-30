@@ -54,7 +54,7 @@ export function vendorBookBy(
   return addDays(eventDate, -compressDays(template.leadDays, longestLead, runway));
 }
 
-export const PHASES = [
+const PHASES = [
   { id: "foundations", label: "Foundations", minDaysOut: 90 },
   { id: "bookings", label: "Bookings", minDaysOut: 30 },
   { id: "details", label: "Details", minDaysOut: 7 },

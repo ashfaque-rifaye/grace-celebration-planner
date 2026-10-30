@@ -1,8 +1,9 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { CalendarPlus, ListChecks, Plus, Sparkles, Trash2 } from "lucide-react";
-import { formatDate } from "../../shared/dates";
+import { daysBetween, formatDate } from "../../shared/dates";
 import { planToIcs } from "../../shared/exports";
-import { groupTasksByPhase, isOverdue } from "../../shared/timeline";
+import { EVENT_TEMPLATES } from "../../shared/templates";
+import { groupTasksByPhase, isCompressed, isOverdue } from "../../shared/timeline";
 import { useAnnounce } from "../lib/announcer";
 import { downloadText, slugify } from "../lib/download";
 import { useAi } from "../lib/use-ai";
@@ -37,6 +38,9 @@ export default function TimelinePanel({ plan, today, dispatch }: PanelProps) {
   }, [plan.tasks, plan.brief.date, filter, today]);
 
   const done = plan.tasks.filter((task) => task.done).length;
+  const planned = EVENT_TEMPLATES[plan.brief.eventType].tasks;
+  const startedOn = plan.createdAt.slice(0, 10);
+  const compressed = isCompressed(planned, startedOn, plan.brief.date);
 
   function addTask(event: FormEvent): void {
     event.preventDefault();
@@ -61,6 +65,15 @@ export default function TimelinePanel({ plan, today, dispatch }: PanelProps) {
   return (
     <div className="stack">
       <h2 className="sr-only">Timeline</h2>
+
+      {compressed ? (
+        <p className="callout callout-warn" data-testid="compressed-note">
+          Short runway: this kind of event usually starts{" "}
+          {Math.max(...planned.map((task) => task.daysBefore))} days out, and you had{" "}
+          {daysBetween(startedOn, plan.brief.date)}. Grace compressed the schedule to fit and kept
+          the tasks in order.
+        </p>
+      ) : null}
 
       <section className="card" aria-labelledby="timeline-title">
         <div className="card-heading">

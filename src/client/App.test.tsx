@@ -422,6 +422,10 @@ describe("plan workspace", () => {
     await goTo(planHref("plan-1"));
     expect(await screen.findByRole("alert")).toHaveTextContent("ran into a problem");
     expect(screen.getByRole("heading", { name: /Readiness/ })).toBeInTheDocument();
+
+    mockAi({ personalize: personalizeReply });
+    await userEvent.click(screen.getByRole("button", { name: "Try again" }));
+    expect(await screen.findByText("Tailored for Chennai")).toBeInTheDocument();
   });
 
   it("does not update the plan if the user leaves while tailoring runs", async () => {

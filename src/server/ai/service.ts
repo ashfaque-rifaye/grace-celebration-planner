@@ -34,7 +34,7 @@ export class InvalidInputError extends Error {
   }
 }
 
-export interface AiResult<F extends AiFeatureName> {
+interface AiResult<F extends AiFeatureName> {
   envelope: AiEnvelope<F>;
   /** Set when the caller is over its limit, so the route can answer 429. */
   retryAfterSeconds?: number;

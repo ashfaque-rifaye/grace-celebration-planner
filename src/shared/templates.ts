@@ -6,7 +6,7 @@
  */
 import type { BudgetCategory, EventType } from "./schemas.js";
 
-export interface BudgetTemplateLine {
+interface BudgetTemplateLine {
   category: BudgetCategory;
   label: string;
   /** Typical share of the total, before the user's priorities are applied. */

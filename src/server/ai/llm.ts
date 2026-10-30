@@ -27,7 +27,7 @@ export interface LlmRequest {
   temperature: number;
 }
 
-export interface LlmResult<T> {
+interface LlmResult<T> {
   value: T;
   /** The provider that actually answered, which drives the honest UI badge. */
   provider: LlmProvider;

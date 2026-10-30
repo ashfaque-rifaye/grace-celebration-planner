@@ -198,7 +198,7 @@ export type AiParsedInput<F extends AiFeatureName> = z.output<(typeof aiContract
 export type AiOutput<F extends AiFeatureName> = z.output<(typeof aiContracts)[F]["output"]>;
 
 /** Why the deterministic planner answered instead of the model. */
-export const fallbackReasonSchema = z.enum(["not-configured", "rate-limited", "provider-error"]);
+const fallbackReasonSchema = z.enum(["not-configured", "rate-limited", "provider-error"]);
 export type FallbackReason = z.infer<typeof fallbackReasonSchema>;
 
 export const aiEnvelopeMeta = z.object({

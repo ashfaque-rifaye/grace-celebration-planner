@@ -80,7 +80,7 @@ export function buildBudgetLines(
   return lines;
 }
 
-export interface BudgetLineSummary extends BudgetLine {
+interface BudgetLineSummary extends BudgetLine {
   /** Manual spend plus every booked or paid vendor's quote on this line. */
   committed: number;
   remaining: number;

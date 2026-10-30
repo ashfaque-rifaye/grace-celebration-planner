@@ -685,3 +685,20 @@ describe("AssistantPanel", () => {
     expect(await screen.findByRole("alert")).toBeInTheDocument();
   });
 });
+
+describe("TimelinePanel on a short runway", () => {
+  it("says when it compressed the schedule, and stays quiet otherwise", () => {
+    const soon = makePlan({ date: addDays(today, 60) }, today);
+    const started = { ...soon, createdAt: `${today}T10:00:00.000Z` };
+    renderPanel(TimelinePanel, started);
+    const note = screen.getByTestId("compressed-note");
+    expect(note).toHaveTextContent("usually starts 270 days out");
+    expect(note).toHaveTextContent("you had 60");
+  });
+
+  it("does not mention compression when there is enough time", () => {
+    const plenty = makePlan({ date: addDays(today, 365) }, today);
+    renderPanel(TimelinePanel, { ...plenty, createdAt: `${today}T10:00:00.000Z` });
+    expect(screen.queryByTestId("compressed-note")).toBeNull();
+  });
+});

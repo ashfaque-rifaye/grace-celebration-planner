@@ -23,6 +23,7 @@ import { AiBadge, ErrorNote, Loading, ProgressRing, Stat, Why } from "./ui";
 interface OverviewProps extends PanelProps {
   personalizing?: boolean;
   personalizeError?: string | null;
+  onRetry?: () => void;
 }
 
 export function OverviewPanel({
@@ -31,6 +32,7 @@ export function OverviewPanel({
   dispatch,
   personalizing = false,
   personalizeError = null,
+  onRetry,
 }: OverviewProps) {
   const announce = useAnnounce();
   const readiness = computeReadiness(plan);
@@ -80,7 +82,7 @@ export function OverviewPanel({
 
       <div aria-live="polite">
         {personalizing ? <Loading>Grace is tailoring your plan…</Loading> : null}
-        {personalizeError ? <ErrorNote message={personalizeError} /> : null}
+        {personalizeError ? <ErrorNote message={personalizeError} onRetry={onRetry} /> : null}
         {plan.personalization ? (
           <section
             className="card card-ai"

@@ -38,8 +38,8 @@ export type Language = (typeof LANGUAGES)[number];
 export type VendorStatus = (typeof VENDOR_STATUSES)[number];
 export type BudgetCategory = (typeof BUDGET_CATEGORIES)[number];
 
-export const MAX_BUDGET = 1_000_000_000_000;
-export const MAX_GUESTS = 100_000;
+const MAX_BUDGET = 1_000_000_000_000;
+const MAX_GUESTS = 100_000;
 export const MAX_PRIORITIES = 3;
 
 export const isoDateSchema = z.string().refine(isIsoDate, "Enter a valid date");
@@ -67,7 +67,7 @@ export const briefSchema = z.object({
 });
 export type Brief = z.infer<typeof briefSchema>;
 
-export const budgetLineSchema = z.object({
+const budgetLineSchema = z.object({
   id: z.string().max(40),
   category: z.enum(BUDGET_CATEGORIES).nullable(),
   label: z.string().max(60),
@@ -77,10 +77,9 @@ export const budgetLineSchema = z.object({
 });
 export type BudgetLine = z.infer<typeof budgetLineSchema>;
 
-export const taskSourceSchema = z.enum(["template", "ai", "you"]);
-export type TaskSource = z.infer<typeof taskSourceSchema>;
+const taskSourceSchema = z.enum(["template", "ai", "you"]);
 
-export const taskSchema = z.object({
+const taskSchema = z.object({
   id: z.string().max(40),
   title: z.string().trim().min(1).max(160),
   due: isoDateSchema,
@@ -98,7 +97,7 @@ export const vendorBriefSchema = z.object({
 });
 export type VendorBrief = z.infer<typeof vendorBriefSchema>;
 
-export const vendorSchema = z.object({
+const vendorSchema = z.object({
   id: z.string().max(40),
   label: z.string().trim().min(1).max(80),
   category: z.enum(BUDGET_CATEGORIES).nullable(),
@@ -117,7 +116,7 @@ export const vendorSchema = z.object({
 });
 export type Vendor = z.infer<typeof vendorSchema>;
 
-export const ideaSchema = z.object({
+const ideaSchema = z.object({
   id: z.string().max(40),
   title: z.string().max(120),
   description: z.string().max(500),
@@ -182,13 +181,13 @@ export const chatMessageSchema = z.object({
 });
 export type ChatMessage = z.infer<typeof chatMessageSchema>;
 
-export const personalizationSchema = z.object({
+const personalizationSchema = z.object({
   summary: z.string().max(600),
   reasoning: z.string().max(400),
   source: aiSourceSchema,
 });
 
-export const budgetReviewSchema = z.object({
+const budgetReviewSchema = z.object({
   advice: z.array(z.object({ title: z.string().max(120), detail: z.string().max(400) })).max(5),
   moves: z.array(budgetMoveSchema).max(4),
   reasoning: z.string().max(400),

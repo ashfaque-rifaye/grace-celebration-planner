@@ -80,8 +80,7 @@ export function PlanWorkspace({
   // Every new plan gets one AI pass that layers event-specific tasks and vendors
   // over the deterministic skeleton. The plan is already usable while this runs.
   // A re-run simply supersedes the previous request, and the server caches it.
-  useEffect(() => {
-    if (plan.personalization) return;
+  const tailorPlan = useCallback(() => {
     void personalize({ brief: plan.brief }).then((envelope) => {
       if (!envelope) return;
       const { summary, reasoning, tasks, vendors } = envelope.data;
@@ -105,7 +104,11 @@ export function PlanWorkspace({
         },
       });
     });
-  }, [plan.personalization, plan.brief, personalize, dispatch, today]);
+  }, [plan.brief, personalize, dispatch, today]);
+
+  useEffect(() => {
+    if (!plan.personalization) tailorPlan();
+  }, [plan.personalization, tailorPlan]);
 
   function onTabKeyDown(event: KeyboardEvent<HTMLButtonElement>): void {
     const index = PLAN_TABS.findIndex((candidate) => candidate.id === tab);
@@ -223,6 +226,7 @@ export function PlanWorkspace({
               personalizeError={
                 personalizeState.status === "error" ? personalizeState.message : null
               }
+              onRetry={tailorPlan}
             />
           ) : (
             renderDetailPanel(tab, { plan, today, dispatch })

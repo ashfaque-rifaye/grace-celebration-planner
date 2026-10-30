@@ -29,7 +29,7 @@ import {
   vendorFallback,
 } from "./fallbacks.js";
 
-export interface FeatureContext {
+interface FeatureContext {
   today: string;
 }
 

@@ -17,7 +17,7 @@ export interface RateLimitOptions {
   maxKeys?: number;
 }
 
-export interface RateLimitResult {
+interface RateLimitResult {
   allowed: boolean;
   /** Hits remaining in the current window after this check. */
   remaining: number;
