@@ -13,3 +13,4 @@ e2e
 .env.*
 !.env.example
 *.md
+video-output
