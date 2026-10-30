@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/ashfaque-rifaye/grace-celebration-planner/actions/workflows/ci.yml/badge.svg)](https://github.com/ashfaque-rifaye/grace-celebration-planner/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Tests](https://img.shields.io/badge/tests-521%20unit%20%2B%209%20browser-brightgreen)
+![Tests](https://img.shields.io/badge/tests-523%20unit%20%2B%209%20browser-brightgreen)
 ![Coverage](https://img.shields.io/badge/coverage-99%25%20statements-brightgreen)
 ![WCAG](https://img.shields.io/badge/axe-0%20violations%20in%20both%20themes-brightgreen)
 
@@ -110,8 +110,8 @@ Every AI feature has a deterministic fallback. A missing key, an exhausted free 
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Code quality**      | TypeScript `strict` with `noUncheckedIndexedAccess`. Layering enforced by ESLint, not just convention: `shared` cannot import `server` or `client`, and `client` cannot import `server`. One contract file shared by browser and server. One reducer for every plan change. Adding an AI feature takes one registry entry                  |
 | **Security**          | Strict CSP (`default-src 'none'`, no `unsafe-*`), HSTS and other headers, prompt-injection defence, output cleaning, per-client and global rate limits, body limits, origin checks, CSV and ICS injection escaping, validated imports, keys only on the server, CI secret scanning. See [SECURITY.md](SECURITY.md)                         |
-| **Efficiency**        | 107.5 kB gzipped entry and 123.3 kB total, enforced by a CI budget. Lazy-loaded panels. Two self-hosted variable fonts (about 60 kB, and browsers fetch only the subset they need), no runtime CSS framework. LRU + TTL response cache and in-flight request sharing avoid paying for a model call twice. Debounced storage writes         |
-| **Testing**           | 521 unit, integration and component tests with 99% statement coverage (thresholds enforced in CI, and network adapters are tested rather than excluded). Property-based tests with fast-check. 9 Playwright browser tests of the real server                                                                                               |
+| **Efficiency**        | 107.5 kB gzipped entry and 123.6 kB total, enforced by a CI budget. Lazy-loaded panels. Two self-hosted variable fonts (about 60 kB, and browsers fetch only the subset they need), no runtime CSS framework. LRU + TTL response cache and in-flight request sharing avoid paying for a model call twice. Debounced storage writes         |
+| **Testing**           | 523 unit, integration and component tests with 99% statement coverage (thresholds enforced in CI, and network adapters are tested rather than excluded). Property-based tests with fast-check. 9 Playwright browser tests of the real server                                                                                               |
 | **Accessibility**     | axe scans of every screen in light and dark in a real browser, including contrast. WCAG contrast asserted at the design-token level. Skip link, landmarks, WAI-ARIA tabs with arrow keys, error summary with focus management, live regions, `lang`/`dir` on AI text, no colour-only signals, reduced motion, forced colours, 44px targets |
 | **Problem alignment** | All three event types and all four named capabilities are first-class tabs, and the AI is used where it adds something a template cannot (see section 3)                                                                                                                                                                                   |
 

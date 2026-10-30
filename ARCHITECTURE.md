@@ -125,7 +125,7 @@ There is no account or database, which removes a whole class of risks (credentia
 | Invalid JSON or schema failure | Try the next model                                                              |
 | 25 s overall deadline          | Stop, and use the offline planner                                               |
 
-404 is included because a retired model is a real, observed failure: during development `gemini-2.5-flash` answered 404 for new keys, while `gemini-3.8-flash` regularly exceeded 40 s. The default chain was chosen by measuring models on a free-tier key, and it can be changed through environment variables. Free-tier quota is about 15 requests per minute per model, so the fallback is deliberately a different model with its own quota. This was tested by exhausting the primary until it answered 429 and confirming that the pipeline still returned live AI answers.
+404 is included because a retired model is a real, observed failure: during development `gemini-2.5-flash` answered 404 for new keys, while `gemini-3.8-flash` regularly exceeded 40 s. The default chain was chosen by measuring models on a free-tier key, and it can be changed through environment variables. Free-tier quota is about 15 requests per minute per model, so the fallback is deliberately a different model with its own quota. This was tested against the real API: the primary was exhausted until it answered 429, and the pipeline still returned live AI answers.
 
 ## 7. Efficiency
 
