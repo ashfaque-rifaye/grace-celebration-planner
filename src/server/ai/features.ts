@@ -12,7 +12,12 @@
 import { LANGUAGE_NAMES } from "../../shared/languages.js";
 import { clampDate } from "../../shared/timeline.js";
 import { EVENT_TEMPLATES } from "../../shared/templates.js";
-import type { AiFeatureName, AiOutput, AiParsedInput, PlanContext } from "../../shared/contracts.js";
+import type {
+  AiFeatureName,
+  AiOutput,
+  AiParsedInput,
+  PlanContext,
+} from "../../shared/contracts.js";
 import type { BudgetCategory, Language, PlanProposal } from "../../shared/schemas.js";
 import {
   briefFallback,
